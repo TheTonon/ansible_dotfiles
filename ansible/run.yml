@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+    - { role: 'system', tags: ['system'] }
+    - { role: 'vim', tags: ['vim'] }
+    - { role: 'tmux', tags: ['tmux'] }
+    - { role: 'docker', tags: ['docker'] }
+    - { role: 'loggi', tags: ['loggi'] }
+    - { role: 'fish', tags: ['fish'] }
+    - { role: 'emacs', tags: ['emacs'] }

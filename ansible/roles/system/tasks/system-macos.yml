@@ -1,0 +1,29 @@
+---
+- name: Check for homebrew
+  stat:
+    path: /usr/local/bin/brew
+  register: homebrew
+
+- name: Install homebrew
+  script: install-homebrew.sh
+  when: not homebrew.stat.exists
+
+- name: Install python
+  package: name={{ item }} state=present
+  with_items:
+    - python
+
+- name: Install autojump
+  package:
+    name: autojump
+    state: present
+
+- name: Install iTerm
+  homebrew_cask:
+    name: iterm2
+    state: present
+    install_options: 'appdir=/Applications'
+
+- name: Misc configs
+  script: misc-macos.sh
+

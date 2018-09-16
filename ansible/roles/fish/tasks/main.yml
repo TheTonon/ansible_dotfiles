@@ -1,0 +1,13 @@
+---
+
+- name: Install Fish
+  homebrew: 
+    name=fish 
+    install_options="{{ install_options|join(',') }}" 
+    state=present
+
+- name: Link Fish application
+  homebrew: 
+    name=fish 
+    state=linked
+
